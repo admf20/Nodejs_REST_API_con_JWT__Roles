@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "a3be7241-377b-4a8a-b349-62154c7c6e7b",
+		"name": "Nodejs_REST_API_con_JWT__Roles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Buscar Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/products/60f2499b365e271d30c37b5d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"products",
+						"60f2499b365e271d30c37b5d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Portatil Acer Aspire 3---\",\r\n\t\"category\": \"Portatil\",\r\n\t\"price\": \"999\",\r\n\t\"imageUrl\": \"https://www.bing.com/images/search?view=detailV2&ccid=NKHbPcPQ&id=BFB52877E4DCA4E9C95230056FD2D99F4C25A70D&thid=OIP.NKHbPcPQF3_zyYC9v1v3cgHaHa&mediaurl=https%3a%2f%2fwww.droitek.com%2ftienda%2fcatalog%2fPortatil-Acer-acer-nx.efaeb.002_12392.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.34a1db3dc3d0177ff3c980bdbf5bf772%3frik%3dDaclTJ%252fZ0m8FMA%26pid%3dImgRaw&exph=1386&expw=1386&q=port%c3%a1til+acer&simid=608016375365182803&FORM=IRPRST&ck=C9BAC12ECF5C559E526DFE7DF9D1FF57&selectedIndex=1&ajaxhist=0&ajaxserp=0\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/products/60f2499b365e271d30c37b5d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"products",
+						"60f2499b365e271d30c37b5d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Portatil Acer Aspire 3\",\r\n\t\"category\": \"Portatil\",\r\n\t\"price\": \"999\",\r\n\t\"imageUrl\": \"https://www.bing.com/images/search?view=detailV2&ccid=NKHbPcPQ&id=BFB52877E4DCA4E9C95230056FD2D99F4C25A70D&thid=OIP.NKHbPcPQF3_zyYC9v1v3cgHaHa&mediaurl=https%3a%2f%2fwww.droitek.com%2ftienda%2fcatalog%2fPortatil-Acer-acer-nx.efaeb.002_12392.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.34a1db3dc3d0177ff3c980bdbf5bf772%3frik%3dDaclTJ%252fZ0m8FMA%26pid%3dImgRaw&exph=1386&expw=1386&q=port%c3%a1til+acer&simid=608016375365182803&FORM=IRPRST&ck=C9BAC12ECF5C559E526DFE7DF9D1FF57&selectedIndex=1&ajaxhist=0&ajaxserp=0\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Usario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/products/60f246e2365e271d30c37b5b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"products",
+						"60f246e2365e271d30c37b5b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

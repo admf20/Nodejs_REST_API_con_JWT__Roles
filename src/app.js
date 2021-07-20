@@ -3,6 +3,7 @@ import morgan from "morgan";
 
 //importando las rutas, ya que no estan como modules
 import productsRoutes from "./routes/products.routes";
+import AuthRoutes from "./routes/auth.routes";
 
 const app = express();
 
@@ -15,6 +16,6 @@ app.use(express.json());
 
 //routes
 app.use('/api/products', productsRoutes);
-// app.get('/')
+app.use('/api/auth', AuthRoutes);
 
 export default app;
