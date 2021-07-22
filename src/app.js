@@ -5,7 +5,10 @@ import morgan from "morgan";
 import productsRoutes from "./routes/products.routes";
 import AuthRoutes from "./routes/auth.routes";
 
+import {CreateRoles} from "./libs/InitialSetup";
+
 const app = express();
+CreateRoles();
 
 //settings
 app.set('port', process.env.PORT || 4000);
