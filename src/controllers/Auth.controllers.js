@@ -1,16 +1,27 @@
 import User from "../models/User";
+import Role from "../models/Role";
+
 import jwt from "jsonwebtoken";
 import config from "../config";
 
 export const SignIn = async (req,res) => {
-    const {username,email, password, role} = req.body;
+    const {username,email, password, roles} = req.body;
 
-    console.log(req.body);
-    res.json('SignIn');
+    const UserFound = await User.findOne({email: req.body.email})
+
+    if(!UserFound) return res.json({
+        status: 400,
+        messages: "El usuario No Existe"
+    })
+
+    console.log(UserFound);
+    res.json({
+        token: ''
+    })
 }
 
 export const SignUp = async (req,res) => {
-    const {username,email, password, role} = req.body;
+    const {username,email, password, roles} = req.body;
 
     const NewUser = new User({
         username,
@@ -18,7 +29,15 @@ export const SignUp = async (req,res) => {
         password: await User.EncryptPassword(password)
     });
 
-    const SavedUser = await NewUser.save();
+    if(roles){
+       const FounRole = await Role.find({name: {$in: roles}})  //buscamos en la tabla roles los usarios que esta ingresando desde el clientey si encuentra 
+       NewUser.roles = FounRole.map(roles => roles._id)         // se utiliza el metodo map para recorrer el resulta de la consulta y solo guardando el id de del role para el nuevo usuario
+    }else {
+        const role = await Role.findOne({name: 'User'})       /// si el cliente no tiene ningun rolo se le pone por defecto al role 'User'
+        NewUser.roles = [roles._id]
+    }
+
+    const SavedUser = await NewUser.save(); //creamos el usuario
     
     const token = jwt.sign({id: SavedUser._id}, config.SECRET,{
         expiresIn: 86400 // 24 horas
