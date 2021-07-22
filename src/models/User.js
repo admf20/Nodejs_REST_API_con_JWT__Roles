@@ -15,8 +15,8 @@ const UserSchema = new Schema({
         required: true
     },
     roles: [{
+        type: Schema.Types.ObjectId,
         ref: 'Role',   //estamos haciendo la relacion de usuario con Role
-        type: Schema.Types.ObjectId
     }]
 //para hacer la relacion seria propiedades que seria "ref" y el "type"
 // ref:  hace refencia a cual modelo queremos hacer referncia en este caso el modelo "Roles"
@@ -39,4 +39,4 @@ const UserSchema = new Schema({
     return await brcrypt.compare(password, receivedPassword);  //utilizamos el metodo 'compare' para comparar con la contraseña en el metodo recive la contraseña que esta en la bd y la que el cliente esta mandando desde el fronted
  }
 
-export default model('Users', UserSchema);
+export default model('User', UserSchema);

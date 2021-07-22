@@ -7,17 +7,25 @@ import config from "../config";
 export const SignIn = async (req,res) => {
     const {username,email, password, roles} = req.body;
 
-    const UserFound = await User.findOne({email: req.body.email})
+    const UserFound = await User.findOne({ email: email }).populate('roles'); //validacion del usuario
 
     if(!UserFound) return res.json({
         status: 400,
-        messages: "El usuario No Existe"
+        messages: "Usuario Incorrecto"
     })
 
-    console.log(UserFound);
-    res.json({
-        token: ''
+    const MatchPassword = await User.ComparePassword(password, UserFound.password) //validacion de la contraseña
+
+    if(!MatchPassword) return res.json({
+        status: 400,
+        messages:'Contraseña Incorrecta'
     })
+
+    const token = jwt.sign({id: UserFound._id}, config.SECRET, { //generamos el token
+        expiresIn: 86400
+    })
+
+    res.json({token})
 }
 
 export const SignUp = async (req,res) => {
@@ -29,7 +37,7 @@ export const SignUp = async (req,res) => {
         password: await User.EncryptPassword(password)
     });
 
-    if(roles){
+    if(req.body.roles){
        const FounRole = await Role.find({name: {$in: roles}})  //buscamos en la tabla roles los usarios que esta ingresando desde el clientey si encuentra 
        NewUser.roles = FounRole.map(roles => roles._id)         // se utiliza el metodo map para recorrer el resulta de la consulta y solo guardando el id de del role para el nuevo usuario
     }else {
