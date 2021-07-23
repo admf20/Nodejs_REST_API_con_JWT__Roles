@@ -1,5 +1,5 @@
 import Role from "../models/Role";
-import User from "../models/User";
+import UserModel from "../models/User";
 
 export const CreatedUser = async (req, res) => {
  
@@ -8,7 +8,7 @@ export const CreatedUser = async (req, res) => {
     
         const RolesFound = await Role.find({name: {$in: roles}}) //capturamos el rol que nos estan dando desde el cliente
     
-        const NewUser = new User({
+        const NewUser = new UserModel({
             username,
             email,
             password, 
@@ -28,10 +28,20 @@ export const CreatedUser = async (req, res) => {
     }
 }
 
-export const getUser = async (req, res) => {
-
+export const getUsers = async (req, res) => {
+    const Users = await UserModel.find();
+    res.json({
+        status: 204,
+        message: "Usuarios Encontrados",
+        Users
+    });
 }
 
-export const getUsers = async (req, res) => {
-
+export const getUsersById = async (req, res) => {
+    const User = await UserModel.findById(req.params.UserId)
+    res.json({
+        status: 204,
+        message: "Usuario Encontrado",
+        User
+    });
 }

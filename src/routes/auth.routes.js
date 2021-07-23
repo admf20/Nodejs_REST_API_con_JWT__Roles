@@ -2,10 +2,11 @@ import {Router} from 'express';
 const router = Router();
 
 import * as AuthCrl from "../controllers/Auth.controllers";
+import {VerifySignup} from "../middlewares"
 
-router.post('/SignIn', AuthCrl.SignIn); //Registrar Usuario
+router.post('/SignUp', [VerifySignup.CheckRolesExisted,VerifySignup.CheckRolesExisted], AuthCrl.SignUp); 
 
-router.post('/SignUp', AuthCrl.SignUp);  //Inicar Seccion
+router.post('/SignIn', AuthCrl.SignIn);
 
 export default router;
 

@@ -1,10 +1,17 @@
 import {Router} from 'express';
 const router = Router();
 
-import { CreatedUser } from '../controllers/User.controllers';
+import { CreatedUser, getUsers, getUsersById } from '../controllers/User.controllers';
 import {AuthJwt, VerifySignup} from '../middlewares/Index'
 
 router.route('/')
-            .post([AuthJwt.VerifyToken, AuthJwt.IsAdmin, VerifySignup.CheckRolesExisted, VerifySignup.CheckDuplicateUsernameOrEmail], CreatedUser)
+            .get(getUsers)
+            .post([AuthJwt.VerifyToken,
+                   AuthJwt.IsAdmin,
+                   VerifySignup.CheckRolesExisted,
+                   VerifySignup.CheckDuplicateUsernameOrEmail], CreatedUser)
+
+router.route('/:UserId')
+            .get(getUsersById)
 
 export default router;

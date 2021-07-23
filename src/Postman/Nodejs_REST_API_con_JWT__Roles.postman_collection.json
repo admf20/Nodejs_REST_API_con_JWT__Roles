@@ -6,128 +6,335 @@
 	},
 	"item": [
 		{
-			"name": "Buscar Usuarios",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/api/products/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"products",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Buscar Usuario",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/api/products/60f2499b365e271d30c37b5d",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"products",
-						"60f2499b365e271d30c37b5d"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Actualizar Usuario",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Portatil Acer Aspire 3---\",\r\n\t\"category\": \"Portatil\",\r\n\t\"price\": \"999\",\r\n\t\"imageUrl\": \"https://www.bing.com/images/search?view=detailV2&ccid=NKHbPcPQ&id=BFB52877E4DCA4E9C95230056FD2D99F4C25A70D&thid=OIP.NKHbPcPQF3_zyYC9v1v3cgHaHa&mediaurl=https%3a%2f%2fwww.droitek.com%2ftienda%2fcatalog%2fPortatil-Acer-acer-nx.efaeb.002_12392.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.34a1db3dc3d0177ff3c980bdbf5bf772%3frik%3dDaclTJ%252fZ0m8FMA%26pid%3dImgRaw&exph=1386&expw=1386&q=port%c3%a1til+acer&simid=608016375365182803&FORM=IRPRST&ck=C9BAC12ECF5C559E526DFE7DF9D1FF57&selectedIndex=1&ajaxhist=0&ajaxserp=0\"\r\n}"
+			"name": "Products",
+			"item": [
+				{
+					"name": "Buscar Producto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/products/60f2499b365e271d30c37b5d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"60f2499b365e271d30c37b5d"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:4000/api/products/60f2499b365e271d30c37b5d",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"products",
-						"60f2499b365e271d30c37b5d"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Crear Usuario",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Portatil Acer Aspire 3\",\r\n\t\"category\": \"Portatil\",\r\n\t\"price\": \"999\",\r\n\t\"imageUrl\": \"https://www.bing.com/images/search?view=detailV2&ccid=NKHbPcPQ&id=BFB52877E4DCA4E9C95230056FD2D99F4C25A70D&thid=OIP.NKHbPcPQF3_zyYC9v1v3cgHaHa&mediaurl=https%3a%2f%2fwww.droitek.com%2ftienda%2fcatalog%2fPortatil-Acer-acer-nx.efaeb.002_12392.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.34a1db3dc3d0177ff3c980bdbf5bf772%3frik%3dDaclTJ%252fZ0m8FMA%26pid%3dImgRaw&exph=1386&expw=1386&q=port%c3%a1til+acer&simid=608016375365182803&FORM=IRPRST&ck=C9BAC12ECF5C559E526DFE7DF9D1FF57&selectedIndex=1&ajaxhist=0&ajaxserp=0\"\r\n}"
+				{
+					"name": "Buscar Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/products/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:4000/api/products",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"products"
-					]
+				{
+					"name": "Crear Producto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjlmNDM2ZTNmZWU0MTRmOGM1MGFmZiIsImlhdCI6MTYyNjk5MzczOSwiZXhwIjoxNjI3MDgwMTM5fQ.DyrSO07Neunos2-t0VjBEd3ximyPLJTf7elcxgAcpDc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \" sss asasass\",\r\n\t\"category\": \"Portatil\",\r\n\t\"price\": \"999\",\r\n\t\"imageUrl\": \"https://www.bing.com/images/search?view=detailV2&ccid=NKHbPcPQ&id=BFB52877E4DCA4E9C95230056FD2D99F4C25A70D&thid=OIP.NKHbPcPQF3_zyYC9v1v3cgHaHa&mediaurl=https%3a%2f%2fwww.droitek.com%2ftienda%2fcatalog%2fPortatil-Acer-acer-nx.efaeb.002_12392.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.34a1db3dc3d0177ff3c980bdbf5bf772%3frik%3dDaclTJ%252fZ0m8FMA%26pid%3dImgRaw&exph=1386&expw=1386&q=port%c3%a1til+acer&simid=608016375365182803&FORM=IRPRST&ck=C9BAC12ECF5C559E526DFE7DF9D1FF57&selectedIndex=1&ajaxhist=0&ajaxserp=0\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Producto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Portatil Acer Aspire 3---\",\r\n\t\"category\": \"Portatil\",\r\n\t\"price\": \"999\",\r\n\t\"imageUrl\": \"https://www.bing.com/images/search?view=detailV2&ccid=NKHbPcPQ&id=BFB52877E4DCA4E9C95230056FD2D99F4C25A70D&thid=OIP.NKHbPcPQF3_zyYC9v1v3cgHaHa&mediaurl=https%3a%2f%2fwww.droitek.com%2ftienda%2fcatalog%2fPortatil-Acer-acer-nx.efaeb.002_12392.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.34a1db3dc3d0177ff3c980bdbf5bf772%3frik%3dDaclTJ%252fZ0m8FMA%26pid%3dImgRaw&exph=1386&expw=1386&q=port%c3%a1til+acer&simid=608016375365182803&FORM=IRPRST&ck=C9BAC12ECF5C559E526DFE7DF9D1FF57&selectedIndex=1&ajaxhist=0&ajaxserp=0\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/products/60f2499b365e271d30c37b5d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"60f2499b365e271d30c37b5d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Producto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjhlODUxMmM4MjVmMjZlNDI3ZmVhNyIsImlhdCI6MTYyNzAwNDIzMCwiZXhwIjoxNjI3MDkwNjMwfQ.9iFEapZZpFy1n5bfIQI4HoezUZ_2ly_tOo31XiN1DEI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/products/60fa14c0bd330e321c150670",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"60fa14c0bd330e321c150670"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Eliminar Usario",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/api/products/60f246e2365e271d30c37b5b",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"products",
-						"60f246e2365e271d30c37b5b"
-					]
+			"name": "Users",
+			"item": [
+				{
+					"name": "Crear Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjhlODUxMmM4MjVmMjZlNDI3ZmVhNyIsImlhdCI6MTYyNzAyMTI5NCwiZXhwIjoxNjI3MTA3Njk0fQ.e5u7eNwjm3fwmW3aNrWZPkOFeQ-VevFLFPMKdVNcNiY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"ssss\",\r\n    \"email\": \"ss@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"roles\": [\"Admin\",\"User\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/users/60f8e8512c825f26e427fea7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"60f8e8512c825f26e427fea7"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Auths",
+			"item": [
+				{
+					"name": "Auth SignIn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"franco@gmail.com\",\r\n    \"password\": \"password\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/SignIn",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"SignIn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth SignUp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"basico Franco\",\r\n    \"email\": \"basico@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"roles\": [\r\n        \"User\"\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/SignUp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"SignUp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url-api\n",
+			"value": "http://localhost:4000"
 		}
 	]
 }
