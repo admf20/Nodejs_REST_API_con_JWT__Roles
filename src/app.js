@@ -1,5 +1,5 @@
 import express from 'express';
-import morgan from "morgan";
+import morgan from 'morgan';
 
 //importando las rutas, ya que no estan como modules
 import productsRoutes from "./routes/products.routes";

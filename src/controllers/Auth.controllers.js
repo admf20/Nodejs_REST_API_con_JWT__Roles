@@ -50,10 +50,13 @@ export const SignUp = async (req,res) => {  //registrar usuario
     const token = jwt.sign({id: SavedUser._id}, config.SECRET,{
         expiresIn: 86400 // 24 horas
     });
-    //Utilizamos la libreria jsonwebtoken y utilizamos el metodo sigin que recibe 3 parametros
-    // el primer parametro, es el id del usuario en el cual se le va a crear el token
-    // el segundo parametro es, la palabra clave
-    // el tercer parametro es, es el tiempo que tiene el token para expirar que en este caso son 24 horas
+
+    /**
+     * TODO: Utilizamos la libreria jsonwebtoken y utilizamos el metodo sigin que recibe 3 parametros:
+    // 1 - El primer parametro, es el id del usuario en el cual se le va a crear el token
+    // 2 - El segundo parametro es, la palabra clave
+    // 3 - El tercer parametro es, es el tiempo que tiene el token para expirar que en este caso son 24 horas
+     */
     
     res.json({
         status: 200,

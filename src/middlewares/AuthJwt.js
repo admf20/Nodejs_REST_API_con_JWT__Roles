@@ -20,7 +20,7 @@ export const VerifyToken = async (req, res, next) => {
         const user = await User.findById(req.UserId, {password: 0})
 
         if(!user) return res.json({
-            status: 404,
+            status: 204,
             messages: 'Usuario Correcto'
         })
 
