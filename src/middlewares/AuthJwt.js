@@ -19,16 +19,19 @@ export const VerifyToken = async (req, res, next) => {
 
         const user = await User.findById(req.UserId, {password: 0})
 
+        console.log(`Id por el 'token' ${decoded.id} y el de 'user' ${user._id}`);
+        
         if(!user) return res.json({
             status: 204,
-            messages: 'Usuario Correcto'
+            messages: 'Sección caducada. Por favor inicia otra vez sección...'
         })
 
         next()
     } catch (error) {
         res.json({
             status: 401,
-            messages: 'No Autorizado'
+            messages: 'No Autorizado',
+            messages: error.message
         })
     }
 }
@@ -49,7 +52,9 @@ export const IsModerator = async (req, res, next) => {
             messages: 'Requiere Usuario Moderator'
         })
     } catch (error) {
-        res.json({status: 401})
+        res.json({
+            message: error.message,
+            status: 401})
     }
 }
 

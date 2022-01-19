@@ -1,14 +1,15 @@
 import {Router} from "express";
 const router = Router();
 
-import { createProducts, deleteProducts, getProducts, getProductsById, updateProducts } from '../controllers/products.controllers' 
+import {createProducts, deleteProducts, getProducts, getProductsById, updateProducts } from '../controllers/products.controllers' 
 import {AuthJwt} from "../middlewares/Index";
+import {VerificarProducto} from '../middlewares/Index'
 
 router.route('/')
             .get(getProducts)
             
             .post([AuthJwt.VerifyToken,
-                   AuthJwt.IsModerator] ,createProducts)
+                   AuthJwt.IsModerator, VerificarProducto.ProductoExistente], createProducts)
 
 router.route('/:productId')
             .get(getProductsById)

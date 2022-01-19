@@ -1,4 +1,5 @@
 import * as AuthJwt from "./AuthJwt";
-import * as VerifySignup from './VerifySignup';
+import * as VerificandoSeccion from './VerifySignup';
+import * as VerificandoProducto from './ValidarProducto';
 
-export {AuthJwt, VerifySignup};
+export {AuthJwt, VerificandoSeccion, VerificandoProducto};             

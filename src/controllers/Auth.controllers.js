@@ -38,8 +38,8 @@ export const SignUp = async (req,res) => {  //registrar usuario
     });
 
     if(req.body.roles){
-       const FounRole = await Role.find({name: {$in: roles}})  //buscamos en la tabla roles los usarios que esta ingresando desde el clientey si encuentra 
-       NewUser.roles = FounRole.map(roles => roles._id)         // se utiliza el metodo map para recorrer el resulta de la consulta y solo guardando el id de del role para el nuevo usuario
+       const FounRole = await Role.find({name: {$in: roles}})  //TODO: buscamos en la tabla roles los usarios que esta ingresando desde el cliente y si encuentra 
+       NewUser.roles = FounRole.map(roles => roles._id)         // se utiliza el metodo map para recorrer el resultado de la consulta y solo guardando el id de del role para el nuevo usuario
     }else {
         const role = await Role.findOne({name: 'User'})       /// si el cliente no tiene ningun rolo se le pone por defecto al role 'User'
         NewUser.roles = [roles._id]

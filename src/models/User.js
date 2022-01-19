@@ -18,7 +18,7 @@ const UserSchema = new Schema({
         ref: 'Role',   //estamos haciendo la relacion de usuario con Role
         type: Schema.Types.ObjectId
     }]
-//para hacer la relacion seria propiedades que seria "ref" y el "type"
+//TODO: para hacer la relacion seria propiedades que seria "ref" y el "type"
 // ref:  hace refencia a cual modelo queremos hacer referncia en este caso el modelo "Roles"
 // type: es el tipo de dato que queremos hacer relacion con el modelo users   
 
